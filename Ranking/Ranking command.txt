@@ -1,3 +1,0 @@
-python split_IQE.py --batch_size=256
-
-python split_IQE.py --batch_size=32
