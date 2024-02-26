@@ -9,3 +9,8 @@ Clustering and Ranking: Diversity-preserved Instruction Selection through Expert
 ## News
 - [2024.02] We release our paper. If you have any questions about our project, please send email to geyuanqaq@gmail.com
 
+## Citation
+If you find our paper useful, please consider citing:
+```bibtex
+
+```
