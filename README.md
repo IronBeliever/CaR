@@ -19,17 +19,21 @@ cd Ranking
 ```
 Default setting
 ```bash
-python split_IQE.py --batch_size=128
+python split_IQS.py --batch_size=128
 ```
 
 Using other instruction file
 ```bash
-python split_IQE.py --input='XX.json'
+python split_IQS.py --input='XX.json'
 ```
 > 'XX.json' needs to be in the format of 'alpaca_data.json'.
 
 
 ### Clustering
+```bash
+python instruction_preprocess.py
+python cluster.py
+```
 
 ## Citation
 If you find our paper useful, please consider citing:
