@@ -10,6 +10,9 @@
 ## News
 - [2024.02] We release our paper. If you have any questions about our project, please send email to geyuanqaq@gmail.com
 
+## Quick Installation
+
+
 ## Usage
 
 ### Ranking
@@ -17,6 +20,10 @@
 ```bash
 cd Ranking
 ```
+
+Download IQS and Comet model from Huggingface. <a href="https://chat.openai.com">Link</a>
+
+
 Default setting
 ```bash
 python split_IQS.py --batch_size=128
