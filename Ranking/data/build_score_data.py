@@ -1,6 +1,6 @@
 '''
-    数据处理
-    将训练集、验证集、测试集的数据（input, output）处理为（src, score）
+    Data processing
+    Process [input, output] from training set, validation set, and test set into [src, score]
     'APE_test_set.csv', 'APE_train_set.csv', 'APE_valid_set.csv'
     {input 0 / output 1}
 '''

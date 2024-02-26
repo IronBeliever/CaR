@@ -20,7 +20,7 @@ def replace_unicode_escape(sequence):
 
 
 
-with open("聊天数据集_APE_1234-4985.json", "r") as f:
+with open("expert-revised.json", "r") as f:
     data = json.load(f)
 
 data_pair = []
