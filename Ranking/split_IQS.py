@@ -64,11 +64,11 @@ def split_command() -> None:
         with open(cfg.input, "r") as f:
             origent_data = json.load(f) 
     else:
-        with open("../data/alpaca_data.json", "r") as f:
+        with open("./data/alpaca_data.json", "r") as f:
             origent_data = json.load(f) 
 
     # load IQS model    
-    model_path = 'lightning_logs/instruction_score/checkpoints/epoch=3-step=1016-val_kendall=0.600.ckpt'
+    model_path = 'Ranking/lightning_logs/instruction_score/checkpoints/epoch=3-step=1016-val_kendall=0.600.ckpt'
     model = load_from_checkpoint(model_path)
     model.eval()
 
@@ -103,7 +103,7 @@ def split_command() -> None:
         i += 1
     
     sorted_data = sorted(origent_data, key=lambda x: x['score'], reverse=True)
-    json.dump(sorted_data, open('../data/ranking_IQS_result.json', 'w'))    
+    json.dump(sorted_data, open('./data/ranking_IQS_result.json', 'w'))    
 
 
 if __name__ == "__main__":
