@@ -38,7 +38,7 @@ def split_command() -> None:
         "--input",
         help=(
             "Path to the directory where intruction dataset will be stored. "
-            + "By default its saved in data/alpaca_data.json"
+            + "By default its saved in ../data/alpaca_data.json"
         ),
         default=None,
     )
@@ -67,7 +67,7 @@ def split_command() -> None:
         with open(cfg.input, "r") as f:
             origent_data = json.load(f) 
     else:
-        with open("alpaca_data.json", "r") as f:
+        with open("../data/alpaca_data.json", "r") as f:
             origent_data = json.load(f) 
         
     model_path = 'lightning_logs/instruction_comet/checkpoints/epoch=3-step=508-val_kendall=0.331.ckpt'
@@ -108,7 +108,7 @@ def split_command() -> None:
         i += 1
     
     sorted_data = sorted(origent_data, key=lambda x: x['score'], reverse=True)
-    json.dump(sorted_data, open('Comet_ranking_result.json', 'w'))    
+    json.dump(sorted_data, open('../data/ranking_Comet_result.json', 'w'))    
 
 
 
