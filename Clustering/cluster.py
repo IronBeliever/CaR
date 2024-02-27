@@ -58,9 +58,9 @@ print(np.shape(vec_x_v1[0]))
 X_vec = np.array(vec_x_v1)
 print(type(X_vec))
 
-# # Save intermediate results
-# np.savetxt("sentence_vector.txt", X_vec, fmt='%f', delimiter=',')
-#
+# Save intermediate results
+np.savetxt("sentence_vector.txt", X_vec, fmt='%f', delimiter=',')
+# load intermediate results
 #X_vec = np.loadtxt("sentence_vector.txt", dtype='float', comments='#', delimiter=',')
 
 
@@ -85,4 +85,31 @@ for item in origent_data:
     item['label'] = str(labels_pred[i])
     i += 1
 
-json.dump(origent_data, open('../data/Clustering_result.json', 'w'))  
+# Saveing the Clustering result (instruction, input, output, score, label)
+json.dump(origent_data, open('../data/clustering_result.json', 'w'))  
+
+'''
+    Selected instructions by CaR method
+'''
+#  select top n1 instructions
+sorted_data = sorted(origent_data, key=lambda x: (x['score']))
+car_result = sorted_data[:1000]     # n1 = 1000
+
+#  select top n2 instructions in each cluster
+sorted_data = sorted(origent_data, key=lambda x: (x['label'], x['score']))
+last_label = -1
+number = 0
+
+for item in sorted_data:
+    if item['label'] != last_label:
+        last_label = item['label']
+        number = 1
+        if item not in car_result:
+            car_result.append(item)
+    elif number < 1:        # n2 = 1
+        number += 1
+        if item not in car_result:
+            car_result.append(item)
+    else:
+        continue
+json.dump(car_result, open('../data/CaR_selected_result.json', 'w'))
