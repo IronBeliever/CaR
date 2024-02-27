@@ -15,7 +15,7 @@ parser.add_argument(
     "--input",
     help=(
         "Path to the directory where intruction dataset will be stored. "
-        + "By default its saved in ./data/IQS_ranking_result.json"
+        + "By default its saved in ./data/ranking_IQS_result.json"
     ),
     default=None,
 )
@@ -25,7 +25,7 @@ if cfg.input is not None:
     with open(cfg.input, "r") as f:
         origent_data = json.load(f) 
 else:
-    with open("../data/IQS_ranking_result.json", "r") as f:
+    with open("./data/ranking_IQS_result.json", "r") as f:
         origent_data = json.load(f) 
 
 '''
@@ -33,7 +33,7 @@ else:
 '''
 # Load model
 from sentence_transformers import SentenceTransformer
-model = SentenceTransformer('sentence_bert')
+model = SentenceTransformer('Clustering/sentence_bert')
 
 vec_x_v1 = []
 i=0
@@ -86,7 +86,7 @@ for item in origent_data:
     i += 1
 
 # Saveing the Clustering result (instruction, input, output, score, label)
-json.dump(origent_data, open('../data/clustering_result.json', 'w'))  
+json.dump(origent_data, open('./data/clustering_result.json', 'w'))  
 
 '''
     Selected instructions by CaR method
@@ -112,4 +112,4 @@ for item in sorted_data:
             car_result.append(item)
     else:
         continue
-json.dump(car_result, open('../data/CaR_selected_result.json', 'w'))
+json.dump(car_result, open('./data/CaR_selected_result.json', 'w'))
