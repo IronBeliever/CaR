@@ -103,7 +103,7 @@ def split_command() -> None:
         i += 1
     
     sorted_data = sorted(origent_data, key=lambda x: x['score'], reverse=True)
-    json.dump(sorted_data, open('../data/IQS_ranking_result.json', 'w'))    
+    json.dump(sorted_data, open('../data/ranking_IQS_result.json', 'w'))    
 
 
 if __name__ == "__main__":
