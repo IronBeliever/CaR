@@ -22,12 +22,12 @@ Download IQS or Comet model from Huggingface(<a href="https://chat.openai.com">L
 
 Default setting
 ```bash
-python split_IQS.py --batch_size=128
+python Ranking/split_IQS.py --batch_size=128
 ```
 
 Using other instruction file
 ```bash
-python split_IQS.py --input='XX.json'
+python Ranking/split_IQS.py --input='XX.json'
 ```
 > 'XX.json' needs to be in the format of 'alpaca_data.json'.
 
