@@ -33,7 +33,7 @@ else:
 '''
 # Load model
 from sentence_transformers import SentenceTransformer
-model = SentenceTransformer('Clustering/sentence_bert')
+model = SentenceTransformer('sentence_bert')
 
 vec_x_v1 = []
 i=0
