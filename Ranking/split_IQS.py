@@ -36,7 +36,7 @@ def split_command() -> None:
         "--input",
         help=(
             "Path to the directory where intruction dataset will be stored. "
-            + "By default its saved in data/alpaca_data.json"
+            + "By default its saved in ../data/alpaca_data.json"
         ),
         default=None,
     )
@@ -64,7 +64,7 @@ def split_command() -> None:
         with open(cfg.input, "r") as f:
             origent_data = json.load(f) 
     else:
-        with open("alpaca_data.json", "r") as f:
+        with open("../data/alpaca_data.json", "r") as f:
             origent_data = json.load(f) 
 
     # load IQS model    
@@ -103,7 +103,7 @@ def split_command() -> None:
         i += 1
     
     sorted_data = sorted(origent_data, key=lambda x: x['score'], reverse=True)
-    json.dump(sorted_data, open('IQS_ranking_result.json', 'w'))    
+    json.dump(sorted_data, open('../data/IQS_ranking_result.json', 'w'))    
 
 
 if __name__ == "__main__":
