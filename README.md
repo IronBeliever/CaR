@@ -12,7 +12,8 @@
 
 ## Quick Installation ⚙️
 ```bash
-conda
+conda create --name car python=3.8
+pip install -r requirements.txt
 ```
 
 ## Usage 🛠
@@ -46,7 +47,7 @@ python Clustering/cluster.py --input='XX.json'
 ```
 > 'XX.json' needs to be in the format of './data/ranking_IQS_data.json'.
 
-## Citation
+## Citation 
 If you find our paper useful, please consider citing:
 ```bibtex
 
