@@ -1,6 +1,7 @@
 from sklearn.cluster import KMeans
 import numpy as np
 import pandas as pd
+from jsonargparse import ArgumentParser
 from sklearn.decomposition import PCA
 import math
 import time
@@ -8,38 +9,54 @@ import json
 import warnings
 warnings.filterwarnings('ignore')
 
-with open("IQS_ranking_result.json", "r") as f:
-    origent_data = json.load(f) 
 
- '''
-     tokenize
- '''
- # Load model
- from sentence_transformers import SentenceTransformer
- model = SentenceTransformer('sentence_bert')
+parser = ArgumentParser(description="Command for sort instruction tuning dataset by COMET score.")
+parser.add_argument(
+    "--input",
+    help=(
+        "Path to the directory where intruction dataset will be stored. "
+        + "By default its saved in ./data/IQS_ranking_result.json"
+    ),
+    default=None,
+)
+cfg = parser.parse_args()
 
- vec_x_v1 = []
- i=0
+if cfg.input is not None:
+    with open(cfg.input, "r") as f:
+        origent_data = json.load(f) 
+else:
+    with open("../data/IQS_ranking_result.json", "r") as f:
+        origent_data = json.load(f) 
 
- for item in origent_data:
-     instruction = "Instruction: "+ item["instruction"] + ' Input: ' + item["input"] + ' Response: ' + item["output"]
-     i+=1
-     output = model.encode(instruction)
-     # print(output.shape)     # 384  (768/2)
-     vec_x_v1.append(output)
-     if i % 100 == 0:
-         print(time.time())
-         print("{}/520".format(i/100))
-         print('------------------')
+'''
+    tokenize
+'''
+# Load model
+from sentence_transformers import SentenceTransformer
+model = SentenceTransformer('sentence_bert')
+
+vec_x_v1 = []
+i=0
+
+for item in origent_data:
+    instruction = "Instruction: "+ item["instruction"] + ' Input: ' + item["input"] + ' Response: ' + item["output"]
+    i+=1
+    output = model.encode(instruction)
+    # print(output.shape)     # 384  (768/2)
+    vec_x_v1.append(output)
+    # if i % 1000 == 0:
+    #     print(time.time())
+    #     print("{}k / 52k".format(i/1000))
+    #     print('------------------')
 
 
- print("\n--------------Dimensional Analysis----------------")
+print("\n--------------Dimensional Analysis----------------")
 
- print(len(vec_x_v1))
- print(np.shape(vec_x_v1[0]))
+print(len(vec_x_v1))
+print(np.shape(vec_x_v1[0]))
 
- X_vec = np.array(vec_x_v1)
- print(type(X_vec))
+X_vec = np.array(vec_x_v1)
+print(type(X_vec))
 
 # # Save intermediate results
 # np.savetxt("sentence_vector.txt", X_vec, fmt='%f', delimiter=',')
@@ -68,4 +85,4 @@ for item in origent_data:
     item['label'] = str(labels_pred[i])
     i += 1
 
-json.dump(origent_data, open('IQS_Clustering_result.json', 'w'))  
+json.dump(origent_data, open('../data/Clustering_result.json', 'w'))  
