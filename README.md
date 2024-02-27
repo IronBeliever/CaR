@@ -17,11 +17,7 @@
 
 ### Ranking
 
-```bash
-cd Ranking
-```
-
-Download IQS and Comet model from Huggingface. <a href="https://chat.openai.com">Link</a>
+Download IQS or Comet model from Huggingface(<a href="https://chat.openai.com">Link</a>), and save it under /CaR/Ranking/lightning_logs/.
 
 
 Default setting
@@ -37,10 +33,17 @@ python split_IQS.py --input='XX.json'
 
 
 ### Clustering
+
+Default setting
 ```bash
-python instruction_preprocess.py
-python cluster.py
+python Clustering/cluster.py
 ```
+
+Using other instruction file
+```bash
+python Clustering/cluster.py --input='XX.json'
+```
+> 'XX.json' needs to be in the format of './data/ranking_IQS_data.json'.
 
 ## Citation
 If you find our paper useful, please consider citing:
