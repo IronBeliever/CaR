@@ -47,7 +47,7 @@ python Clustering/cluster.py --input='XX.json'
 ```
 > 'XX.json' needs to be in the format of './data/ranking_IQS_data.json'.
 
-## Traning of Ranking Model 📜
+## Training of Ranking Model 📜
 
 Instead of using pretrained models your can train your own model with the following command:
 ```bash
