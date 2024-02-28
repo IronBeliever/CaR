@@ -47,6 +47,44 @@ python Clustering/cluster.py --input='XX.json'
 ```
 > 'XX.json' needs to be in the format of './data/ranking_IQS_data.json'.
 
+## Traning of Ranking Model 📜
+
+Instead of using pretrained models your can train your own model with the following command:
+```bash
+comet-train --cfg configs/models/{your_model_config}.yaml
+```
+
+Specific yaml parameters of IQS 
+```bash
+activations: Tanh
+batch_size: 8
+class_identifier: instruction_metric
+dropout: 0.1
+encoder_learning_rate: 1.0e-06
+encoder_model: XLM-RoBERTa
+final_activation: null
+hidden_sizes:
+- 2048
+- 1024
+keep_embeddings_frozen: true
+layer: mix
+layer_norm: false
+layer_transformation: sparsemax
+layerwise_decay: 0.95
+learning_rate: 1.5e-05
+load_pretrained_weights: true
+loss: mse
+nr_frozen_epochs: 0.3
+optimizer: AdamW
+pool: avg
+pretrained_model: xlm-roberta-large
+train_data:
+- data/APE_score_train.csv
+validation_data:
+- data/APE_score_valid.csv
+warmup_steps: 0
+```
+
 ## Citation 
 If you find our paper useful, please consider citing:
 ```bibtex
