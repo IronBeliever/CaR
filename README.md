@@ -87,6 +87,7 @@ trainer: ../trainer.yaml
 early_stopping: ../early_stopping.yaml
 model_checkpoint: ../model_checkpoint.yaml
 ```
+Training data format of IQS can be found under */CaR-main/Ranking/data/expert-revised*, and Comet under */CaR-main/Ranking/data/expert-revised-comet*.
 
 ## Citation 
 If you find our paper useful, please consider citing:
