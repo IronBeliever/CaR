@@ -56,33 +56,36 @@ comet-train --cfg configs/models/{your_model_config}.yaml
 
 Specific yaml parameters of IQS 
 ```bash
-activations: Tanh
-batch_size: 8
-class_identifier: instruction_metric
-dropout: 0.1
-encoder_learning_rate: 1.0e-06
-encoder_model: XLM-RoBERTa
-final_activation: null
-hidden_sizes:
-- 2048
-- 1024
-keep_embeddings_frozen: true
-layer: mix
-layer_norm: false
-layer_transformation: sparsemax
-layerwise_decay: 0.95
-learning_rate: 1.5e-05
-load_pretrained_weights: true
-loss: mse
-nr_frozen_epochs: 0.3
-optimizer: AdamW
-pool: avg
-pretrained_model: xlm-roberta-large
-train_data:
-- data/APE_score_train.csv
-validation_data:
-- data/APE_score_valid.csv
-warmup_steps: 0
+instruction_metric:
+  class_path: comet.models.InstructionMetric
+  init_args:
+    nr_frozen_epochs: 0.3
+    keep_embeddings_frozen: True
+    optimizer: AdamW
+    encoder_learning_rate: 1.0e-06
+    learning_rate: 1.5e-05
+    layerwise_decay: 0.95
+    encoder_model: XLM-RoBERTa
+    pretrained_model: xlm-roberta-large
+    pool: avg
+    layer: mix
+    layer_transformation: sparsemax
+    layer_norm: False
+    loss: mse
+    dropout: 0.1
+    batch_size: 8
+    train_data: 
+      - data/APE_score_train.csv
+    validation_data: 
+      - data/APE_score_valid.csv
+    hidden_sizes:
+      - 2048
+      - 1024
+    activations: Tanh
+      
+trainer: ../trainer.yaml
+early_stopping: ../early_stopping.yaml
+model_checkpoint: ../model_checkpoint.yaml
 ```
 
 ## Citation 
