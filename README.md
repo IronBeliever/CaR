@@ -13,7 +13,9 @@
 ## Quick Installation ⚙️
 ```bash
 conda create --name car python=3.8
-pip install -r requirements.txt
+conda activate car
+pip install poetry
+poetry install
 ```
 
 ## Usage 🛠
