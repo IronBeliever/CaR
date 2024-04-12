@@ -1,6 +1,6 @@
 <h1 align="center">Clustering and Ranking: Diversity-preserved Instruction Selection through Expert-aligned Quality Estimation</h1>
 <!-- Clustering and Ranking: Diversity-preserved Instruction Selection through Expert-aligned Quality Estimation -->
-<h4 align="center"> Yuan Ge, Yilun Liu, Chi Hu, Weibin Meng, Shimin Tao, Xiaofeng Zhao, Hongxia Ma, Li Zhang, Hao Yang, Tong Xiao</h4>
+<h4 align="center"> Yuan Ge, Yilun Liu, Chi Hu, Weibin Meng, Shimin Tao, Xiaofeng Zhao, Hongxia Ma, Li Zhang, Boxing Chen, Hao Yang, Bei Li, Tong Xiao, Jingbo Zhu</h4>
 
 <p align="center">
     <img src="alpacar.png" width="20%"> <br>
@@ -94,5 +94,10 @@ model_checkpoint: ../model_checkpoint.yaml
 ## Citation 
 If you find our paper useful, please consider citing:
 ```bibtex
-
+@article{ge2024clustering,
+  title={Clustering and Ranking: Diversity-preserved Instruction Selection through Expert-aligned Quality Estimation},
+  author={Ge, Yuan and Liu, Yilun and Hu, Chi and Meng, Weibin and Tao, Shimin and Zhao, Xiaofeng and Ma, Hongxia and Zhang, Li and Yang, Hao and Xiao, Tong},
+  journal={arXiv preprint arXiv:2402.18191},
+  year={2024}
+}
 ```
