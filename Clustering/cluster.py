@@ -92,11 +92,11 @@ json.dump(origent_data, open('./data/clustering_result.json', 'w'))
     Selected instructions by CaR method
 '''
 #  select top n1 instructions
-sorted_data = sorted(origent_data, key=lambda x: (x['score']))
+sorted_data = sorted(origent_data, key=lambda x: (x['score']), reverse=True)
 car_result = sorted_data[:1000]     # n1 = 1000
 
 #  select top n2 instructions in each cluster
-sorted_data = sorted(origent_data, key=lambda x: (x['label'], x['score']))
+sorted_data = sorted(origent_data, key=lambda x: (x['label'], x['score']), reverse=True)
 last_label = -1
 number = 0
 
