@@ -76,7 +76,7 @@ print(X_reduced.shape)      # (52002, 243)
 '''
     run k-means on the feature vectors processed by PCA
 '''
-k = int(math.sqrt(52002 / 2))
+k = int(math.sqrt(len(vec_x_v1) / 2))
 kmeans = KMeans(n_clusters=k, random_state=42)  
 labels_pred = kmeans.fit_predict(X_reduced) 
 
