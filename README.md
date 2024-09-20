@@ -9,6 +9,7 @@
 
 ## News💡
 - [2024.02] We release our 📄<a href="https://arxiv.org/abs/2402.18191">paper</a>. If you have any questions about our project, please send email to geyuanqaq@gmail.com
+- [2024.09] CaR is accepted by EMNLP 2024 Main!🎉🎉🎉
 
 ## Quick Installation ⚙️
 ```bash
