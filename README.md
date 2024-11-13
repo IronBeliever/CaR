@@ -95,10 +95,31 @@ model_checkpoint: ../model_checkpoint.yaml
 ## Citation 
 If you find our paper useful, please consider citing:
 ```bibtex
-@article{ge2024clustering,
-  title={Clustering and Ranking: Diversity-preserved Instruction Selection through Expert-aligned Quality Estimation},
-  author={Ge, Yuan and Liu, Yilun and Hu, Chi and Meng, Weibin and Tao, Shimin and Zhao, Xiaofeng and Ma, Hongxia and Zhang, Li and Yang, Hao and Xiao, Tong},
-  journal={arXiv preprint arXiv:2402.18191},
-  year={2024}
+@inproceedings{ge-etal-2024-clustering,
+    title = "Clustering and Ranking: Diversity-preserved Instruction Selection through Expert-aligned Quality Estimation",
+    author = "Ge, Yuan  and
+      Liu, Yilun  and
+      Hu, Chi  and
+      Meng, Weibin  and
+      Tao, Shimin  and
+      Zhao, Xiaofeng  and
+      Xia, Mahong  and
+      Li, Zhang  and
+      Chen, Boxing  and
+      Yang, Hao  and
+      Li, Bei  and
+      Xiao, Tong  and
+      Zhu, JingBo",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.emnlp-main.28",
+    pages = "464--478",
+    abstract = "With contributions from the open-source community, a vast amount of instruction tuning (IT) data has emerged. Given the significant resource allocation required by training and evaluating models, it is advantageous to have an efficient method for selecting high-quality IT data. However, existing methods for instruction data selection have limitations such as relying on fragile external APIs, being affected by biases in GPT models, or reducing the diversity of the selected instruction dataset. In this paper, we propose an industrial-friendly, expert-aligned and diversity-preserved instruction data selection method: Clustering and Ranking (CaR). CaR consists of two steps. The first step involves ranking instruction pairs using a scoring model that is well aligned with expert preferences (achieving an accuracy of 84.25{\%}). The second step involves preserving dataset diversity through a clustering process. In our experiment, CaR selected a subset containing only 1.96{\%} of Alpaca{'}s IT data, yet the underlying AlpaCaR model trained on this subset outperforms Alpaca by an average of 32.1{\%} in GPT-4 evaluations. Furthermore, our method utilizes small models (550M parameters) and requires only 11.2{\%} of the monetary cost compared to existing methods, making it easily deployable in industrial scenarios.",
 }
 ```
